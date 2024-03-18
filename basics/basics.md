@@ -55,4 +55,23 @@ let _ = print_endline "Hello World!"
 ```
 - We can compile the following file using the following command:
   - `ocamlc -o hello.byte hello hello.ml`
-  - 
+  - The following piece will generatee three files examples.byte, example.cmo, and example.cmi
+    - This can very messy quick for large projects hence we use dune which is similar to systems like MakeFiles
+- To manually define a dune project, one can first define a `dune` file of the form:
+```
+(executable
+(name hello)
+)
+```
+- This defines a dune file where the target file for compiliation is `hello.ml`
+- Now we we also need to create a `dune-project` file with the following content:
+```
+(lang dune 3.4)
+```
+- This specifies dune version 
+- Now to build a dune file:
+  - We can now build our executable via running the following command `dune build hello.exe`
+  - To run, we can either run `dune _build/default/hello.exe` or `dune exec ./hello.exe`
+- Assume that your are making, a lot of changes to your file and don't want to build every time you can also run `dune build --watch `
+- Let's say you are too lazy to define a `dune` project every time, then we can initalize project using `dune init project name `
+## Expressions:
